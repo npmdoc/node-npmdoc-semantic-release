@@ -1,11 +1,13 @@
 # api documentation for  [semantic-release (v6.3.2)](https://github.com/semantic-release/semantic-release/tree/next#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-semantic-release.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-semantic-release) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-semantic-release.svg)](https://travis-ci.org/npmdoc/node-npmdoc-semantic-release)
 #### automated semver compliant package publishing
 
-[![NPM](https://nodei.co/npm/semantic-release.png?downloads=true)](https://www.npmjs.com/package/semantic-release)
+[![NPM](https://nodei.co/npm/semantic-release.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/semantic-release)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-semantic-release_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-semantic-release/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-semantic-release/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -16,7 +18,6 @@
 {
     "author": {
         "name": "Stephan Bönnemann",
-        "email": "stephan@boennemann.me",
         "url": "http://boennemann.me"
     },
     "bin": {
@@ -92,16 +93,13 @@
     "main": "bin/semantic-release.js",
     "maintainers": [
         {
-            "name": "boennemann",
-            "email": "stephan@boennemann.me"
+            "name": "boennemann"
         },
         {
-            "name": "christophwitzko",
-            "email": "npm@christophwitzko.com"
+            "name": "christophwitzko"
         },
         {
-            "name": "semantic-release-bot",
-            "email": "semantic-release@boennemann.me"
+            "name": "semantic-release-bot"
         }
     ],
     "name": "semantic-release",
@@ -109,7 +107,6 @@
     "publishConfig": {
         "tag": "next"
     },
-    "readme": "ERROR: No README data found!",
     "release": {
         "branch": "caribou"
     },
