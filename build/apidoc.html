@@ -61,12 +61,168 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.semantic-release">module semantic-release</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.semantic-release.plugins">
+            function <span class="apidocSignatureSpan">semantic-release.</span>plugins
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.semantic-release.plugins">module semantic-release.plugins</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.semantic-release.plugins.plugins">
+            function <span class="apidocSignatureSpan">semantic-release.</span>plugins
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.semantic-release.plugins.normalize">
+            function <span class="apidocSignatureSpan">semantic-release.plugins.</span>normalize
+            <span class="apidocSignatureSpan">(pluginConfig, fallback)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.semantic-release" id="apidoc.module.semantic-release">module semantic-release</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.semantic-release.plugins" id="apidoc.element.semantic-release.plugins">
+        function <span class="apidocSignatureSpan">semantic-release.</span>plugins
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">plugins = function (options) {
+  var plugins = {
+    analyzeCommits: exports.normalize(options.analyzeCommits, &#x27;@semantic-release/commit-analyzer&#x27;),
+    generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
+    getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+  }
+
+  ;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+    if (!Array.isArray(options[plugin])) {
+      plugins[plugin] = exports.normalize(
+        options[plugin],
+        plugin === &#x27;verifyConditions&#x27;
+          ? &#x27;@semantic-release/condition-travis&#x27;
+          : &#x27;./plugin-noop&#x27;
+      )
+      return
+    }
+
+    plugins[plugin] = function (pluginOptions, cb) {
+      var tasks = options[plugin].map(function (step) {
+        return exports.normalize(step, &#x27;./plugin-noop&#x27;).bind(null, pluginOptions)
+      })
+
+      series(tasks, cb)
+    }
+  })
+
+  return plugins
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.semantic-release.plugins" id="apidoc.module.semantic-release.plugins">module semantic-release.plugins</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.semantic-release.plugins.plugins" id="apidoc.element.semantic-release.plugins.plugins">
+        function <span class="apidocSignatureSpan">semantic-release.</span>plugins
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">plugins = function (options) {
+  var plugins = {
+    analyzeCommits: exports.normalize(options.analyzeCommits, &#x27;@semantic-release/commit-analyzer&#x27;),
+    generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
+    getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+  }
+
+  ;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+    if (!Array.isArray(options[plugin])) {
+      plugins[plugin] = exports.normalize(
+        options[plugin],
+        plugin === &#x27;verifyConditions&#x27;
+          ? &#x27;@semantic-release/condition-travis&#x27;
+          : &#x27;./plugin-noop&#x27;
+      )
+      return
+    }
+
+    plugins[plugin] = function (pluginOptions, cb) {
+      var tasks = options[plugin].map(function (step) {
+        return exports.normalize(step, &#x27;./plugin-noop&#x27;).bind(null, pluginOptions)
+      })
+
+      series(tasks, cb)
+    }
+  })
+
+  return plugins
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.semantic-release.plugins.normalize" id="apidoc.element.semantic-release.plugins.normalize">
+        function <span class="apidocSignatureSpan">semantic-release.plugins.</span>normalize
+        <span class="apidocSignatureSpan">(pluginConfig, fallback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalize = function (pluginConfig, fallback) {
+  if (typeof pluginConfig === &#x27;string&#x27;) return relative(pluginConfig).bind(null, {})
+
+  if (pluginConfig &#x26;&#x26; (typeof pluginConfig.path === &#x27;string&#x27;)) {
+    return relative(pluginConfig.path).bind(null, pluginConfig)
+  }
+
+  return require(fallback).bind(null, pluginConfig)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+var relative = require(&#x27;require-relative&#x27;)
+var series = require(&#x27;run-series&#x27;)
+
+var exports = module.exports = function (options) {
+var plugins = {
+  analyzeCommits: exports.<span class="apidocCodeKeywordSpan">normalize</span>(options.analyzeCommits, &#x27;@semantic-release/commit
+-analyzer&#x27;),
+  generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
+  getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+}
+
+;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+  if (!Array.isArray(options[plugin])) {
+    plugins[plugin] = exports.normalize(
+...</pre></li>
+    </ul>
+
 
 </div>
 

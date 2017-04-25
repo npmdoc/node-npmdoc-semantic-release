@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/semantic-release/semantic-release/tree/next#readme"
-
-    >semantic-release (v6.3.2)</a>
+    <a href="https://github.com/semantic-release/semantic-release/tree/next#readme">semantic-release (v6.3.2)</a>
 </h1>
 <h4>automated semver compliant package publishing</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.semantic-release">module semantic-release</a><ol>
 
@@ -109,25 +102,25 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">plugins = function (options) {
   var plugins = {
-    analyzeCommits: exports.normalize(options.analyzeCommits, &#x27;@semantic-release/commit-analyzer&#x27;),
-    generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
-    getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+    analyzeCommits: exports.normalize(options.analyzeCommits, '@semantic-release/commit-analyzer'),
+    generateNotes: exports.normalize(options.generateNotes, '@semantic-release/release-notes-generator'),
+    getLastRelease: exports.normalize(options.getLastRelease, '@semantic-release/last-release-npm')
   }
 
-  ;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+  ;['verifyConditions', 'verifyRelease'].forEach(function (plugin) {
     if (!Array.isArray(options[plugin])) {
       plugins[plugin] = exports.normalize(
         options[plugin],
-        plugin === &#x27;verifyConditions&#x27;
-          ? &#x27;@semantic-release/condition-travis&#x27;
-          : &#x27;./plugin-noop&#x27;
+        plugin === 'verifyConditions'
+          ? '@semantic-release/condition-travis'
+          : './plugin-noop'
       )
       return
     }
 
     plugins[plugin] = function (pluginOptions, cb) {
       var tasks = options[plugin].map(function (step) {
-        return exports.normalize(step, &#x27;./plugin-noop&#x27;).bind(null, pluginOptions)
+        return exports.normalize(step, './plugin-noop').bind(null, pluginOptions)
       })
 
       series(tasks, cb)
@@ -155,25 +148,25 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">plugins = function (options) {
   var plugins = {
-    analyzeCommits: exports.normalize(options.analyzeCommits, &#x27;@semantic-release/commit-analyzer&#x27;),
-    generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
-    getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+    analyzeCommits: exports.normalize(options.analyzeCommits, '@semantic-release/commit-analyzer'),
+    generateNotes: exports.normalize(options.generateNotes, '@semantic-release/release-notes-generator'),
+    getLastRelease: exports.normalize(options.getLastRelease, '@semantic-release/last-release-npm')
   }
 
-  ;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+  ;['verifyConditions', 'verifyRelease'].forEach(function (plugin) {
     if (!Array.isArray(options[plugin])) {
       plugins[plugin] = exports.normalize(
         options[plugin],
-        plugin === &#x27;verifyConditions&#x27;
-          ? &#x27;@semantic-release/condition-travis&#x27;
-          : &#x27;./plugin-noop&#x27;
+        plugin === 'verifyConditions'
+          ? '@semantic-release/condition-travis'
+          : './plugin-noop'
       )
       return
     }
 
     plugins[plugin] = function (pluginOptions, cb) {
       var tasks = options[plugin].map(function (step) {
-        return exports.normalize(step, &#x27;./plugin-noop&#x27;).bind(null, pluginOptions)
+        return exports.normalize(step, './plugin-noop').bind(null, pluginOptions)
       })
 
       series(tasks, cb)
@@ -195,9 +188,9 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">normalize = function (pluginConfig, fallback) {
-  if (typeof pluginConfig === &#x27;string&#x27;) return relative(pluginConfig).bind(null, {})
+  if (typeof pluginConfig === 'string') return relative(pluginConfig).bind(null, {})
 
-  if (pluginConfig &#x26;&#x26; (typeof pluginConfig.path === &#x27;string&#x27;)) {
+  if (pluginConfig &amp;&amp; (typeof pluginConfig.path === 'string')) {
     return relative(pluginConfig.path).bind(null, pluginConfig)
   }
 
@@ -206,18 +199,18 @@
     <li>example usage<pre class="apidocCodePre">...
 
 
-var relative = require(&#x27;require-relative&#x27;)
-var series = require(&#x27;run-series&#x27;)
+var relative = require('require-relative')
+var series = require('run-series')
 
 var exports = module.exports = function (options) {
 var plugins = {
-  analyzeCommits: exports.<span class="apidocCodeKeywordSpan">normalize</span>(options.analyzeCommits, &#x27;@semantic-release/commit
--analyzer&#x27;),
-  generateNotes: exports.normalize(options.generateNotes, &#x27;@semantic-release/release-notes-generator&#x27;),
-  getLastRelease: exports.normalize(options.getLastRelease, &#x27;@semantic-release/last-release-npm&#x27;)
+  analyzeCommits: exports.<span class="apidocCodeKeywordSpan">normalize</span>(options.analyzeCommits, '@semantic-release/commit
+-analyzer'),
+  generateNotes: exports.normalize(options.generateNotes, '@semantic-release/release-notes-generator'),
+  getLastRelease: exports.normalize(options.getLastRelease, '@semantic-release/last-release-npm')
 }
 
-;[&#x27;verifyConditions&#x27;, &#x27;verifyRelease&#x27;].forEach(function (plugin) {
+;['verifyConditions', 'verifyRelease'].forEach(function (plugin) {
   if (!Array.isArray(options[plugin])) {
     plugins[plugin] = exports.normalize(
 ...</pre></li>
@@ -232,3 +225,4 @@ var plugins = {
     ]
 </div>
 </div>
+</body></html>
