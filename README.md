@@ -1,9 +1,14 @@
-# api documentation for  [semantic-release (v6.3.2)](https://github.com/semantic-release/semantic-release/tree/next#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-semantic-release.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-semantic-release) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-semantic-release.svg)](https://travis-ci.org/npmdoc/node-npmdoc-semantic-release)
+# npmdoc-semantic-release
+
+#### basic api documentation for  [semantic-release (v6.3.2)](https://github.com/semantic-release/semantic-release/tree/next#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-semantic-release.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-semantic-release) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-semantic-release.svg)](https://travis-ci.org/npmdoc/node-npmdoc-semantic-release)
+
 #### automated semver compliant package publishing
 
 [![NPM](https://nodei.co/npm/semantic-release.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/semantic-release)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-semantic-release/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-semantic-release/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-semantic-release/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-semantic-release/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-semantic-release/build/screenCapture.npmPackageListing.svg)
 
@@ -126,16 +131,6 @@
     "version": "6.3.2"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module semantic-release](#apidoc.module.semantic-release)
-
-
-
-# <a name="apidoc.module.semantic-release"></a>[module semantic-release](#apidoc.module.semantic-release)
 
 
 

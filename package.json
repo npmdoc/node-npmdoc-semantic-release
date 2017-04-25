@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "semantic-release",
-    "description": "api documentation for [semantic-release (v6.3.2)](https://github.com/semantic-release/semantic-release/tree/next#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-semantic-release.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-semantic-release) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-semantic-release.svg)](https://travis-ci.org/npmdoc/node-npmdoc-semantic-release)",
+    "description": "#### basic api documentation for  [semantic-release (v6.3.2)](https://github.com/semantic-release/semantic-release/tree/next#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-semantic-release.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-semantic-release) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-semantic-release.svg)](https://travis-ci.org/npmdoc/node-npmdoc-semantic-release)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "semantic-release": "*",
